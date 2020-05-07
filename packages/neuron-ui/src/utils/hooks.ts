@@ -3,8 +3,7 @@ import { TFunction } from 'i18next'
 import { openContextMenu } from 'services/remote'
 import { updateTransactionDescription, updateAddressDescription } from 'states/stateProvider/actionCreators'
 import { StateDispatch, AppActions } from 'states/stateProvider/reducer'
-import { epochParser } from 'utils/parsers'
-import calculateClaimEpochValue from 'utils/calculateClaimEpochValue'
+import { epochParser, calculateClaimEpochValue } from 'utils'
 
 export const useGoBack = (history: any) => {
   return useCallback(() => {
@@ -190,12 +189,4 @@ export const useExitOnWalletChange = () => {
       window.removeEventListener('storage', listener)
     }
   }, [])
-}
-export default {
-  useGoBack,
-  useLocalDescription,
-  useCalculateEpochs,
-  useDialog,
-  useOnDefaultContextMenu,
-  useExitOnWalletChange,
 }

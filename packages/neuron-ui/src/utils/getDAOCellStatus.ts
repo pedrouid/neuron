@@ -1,6 +1,6 @@
-import { epochParser } from 'utils/parsers'
-import calculateClaimEpochValue from 'utils/calculateClaimEpochValue'
-import { IMMATURE_EPOCHS } from 'utils/const'
+import { epochParser } from './parsers'
+import calculateClaimEpochValue from './calculateClaimEpochValue'
+import { IMMATURE_EPOCHS } from './const'
 
 export enum CellStatus {
   Depositing,
@@ -28,7 +28,7 @@ export interface DAOCellStatusParams {
   depositEpoch: string
 }
 
-export default ({
+export const getDAOCellStatus = ({
   unlockInfo,
   withdrawInfo,
   status,
@@ -82,3 +82,5 @@ export default ({
   }
   return CellStatus.Deposited
 }
+
+export default getDAOCellStatus
